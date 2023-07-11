@@ -1,77 +1,54 @@
-<head>
-    <link href="<?php echo base_url(); ?>assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-</head>
-<div class="col-12">
+<div class="col-lg-12">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Demande de rechargement</h4>
+            <h4 class="card-title">Demande de recharge</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="example5" class="display min-w850">
+                <table class="table table-responsive-md">
                     <thead>
                         <tr>
-                            <th>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="form-check-input" id="checkAll" required="">
-                                    <label class="custom-control-label" for="checkAll"></label>
-                                </div>
-                            </th>
-                            <th>Order ID</th>
-                            <th>Date Check in</th>
-                            <th>Name</th>
-                            <th>Assgined</th>
-                            <th>Disease</th>
-                            <th>Status</th>
-                            <th>Table no</th>
-                            <th>Action</th>
+                            <th class="width80"><strong>#</strong></th>
+                            <th><strong>DATE</strong></th>
+                            <th><strong>UTILISATEUR</strong></th>
+                            <th><strong>CODE</strong></th>
+                            <th><strong>MONTANT</strong></th>
+                            <th><strong>STATUS</strong></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-                                    <label class="custom-control-label" for="customCheckBox2"></label>
-                                </div>
-                            </td>
-                            <td>#P-00001</td>
-                            <td>26/02/2020, 12:42 AM</td>
-                            <td>Tiger Nixon</td>
-                            <td>Dr. Cedric</td>
-                            <td>Cold & Flu</td>
-                            <td>
-                                <span class="badge light badge-danger">
-                                    <i class="fa fa-circle text-danger me-1"></i>
-                                    New Patient
-                                </span>
-                            </td>
-                            <td>AB-001</td>
-                            <td>
-                                <div class="dropdown ms-auto text-end">
-                                    <div class="btn-link" data-bs-toggle="dropdown">
-                                        <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect x="0" y="0" width="24" height="24"></rect>
-                                                <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                            </g>
-                                        </svg>
+                        <?php for ($i = 0; $i < count($demandes); $i++) { ?>
+                            <tr>
+                                <td><strong><?php echo ($i + 1); ?></strong></td>
+                                <td><?php echo $demandes[$i]->date; ?></td>
+                                <td><?php echo $demandes[$i]->utilisateur; ?></td>
+                                <td><?php echo $demandes[$i]->code; ?></td>
+                                <td><?php echo $demandes[$i]->afficherValeur(); ?></td>
+                                <td><?php echo $demandes[$i]->afficherEtat(); ?></td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-default light sharp" data-bs-toggle="dropdown">
+                                            <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24" />
+                                                    <circle fill="#000000" cx="5" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="12" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="19" cy="12" r="2" />
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="validerRecharge/<?php echo $demandes[$i]->id; ?>/<?php echo $demandes[$i]->idUtilisateur; ?>/<?php echo $demandes[$i]->valeur; ?>">Valider</a>
+                                            <a class="dropdown-item" href="refuserRecharge/<?php echo $demandes[$i]->id; ?>">Refuser</a>
+                                        </div>
                                     </div>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Accept Patient</a>
-                                        <a class="dropdown-item" href="#">Reject Order</a>
-                                        <a class="dropdown-item" href="#">View Details</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
-<script src="<?php echo base_url(); ?>assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/plugins-init/datatables.init.js"></script>
