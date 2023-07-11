@@ -142,14 +142,36 @@
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Pilotage</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li class="mm-active"><a href="#">Tableau de bord</a></li>
+                            <li><a href="#">Statistiques</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="fas fa-leaf"></i>
                             <span class="nav-text">Regime</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li class="mm-active"><a href="#">Creation</a></li>
+                            <li class="mm-active"><a href="<?php echo base_url(); ?>Back-Office/dietController">Creation</a></li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Configurer</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="<?php echo base_url(); ?>Back-Office/dietController/configurer/1">Petit-dejeuner</a></li>
+                                    <li><a href="<?php echo base_url(); ?>Back-Office/dietController/configurer/11">Dejeuner</a></li>
+                                    <li><a href="<?php echo base_url(); ?>Back-Office/dietController/configurer/21">Diner</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="fas fa-utensils"></i>
+                            <span class="nav-text">Plat</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li class="mm-active"><a href="<?php echo base_url(); ?>Back-Office/platController">Ajouter</a></li>
                             <li><a href="#">Voir</a></li>
-                            <li><a href="#">Mise à jour</a></li>
-                            <li><a href="#">Suppression</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -157,7 +179,8 @@
                             <span class="nav-text">Activites sportives</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="app-profile.html">Ajout</a></li>
+                            <li><a href="<?php echo base_url(); ?>Back-Office/sportActivityController">Ajout</a></li>
+                            <li><a href="<?php echo base_url(); ?>Back-Office/sportActivityController/configurer">Configurer</a></li>
                             <li><a href="#">Liste</a></li>
                             <li><a href="#">Mise à jour</a></li>
                             <li><a href="#">Suppression</a></li>
@@ -172,7 +195,7 @@
                                 <ul aria-expanded="false">
                                     <li><a href="<?php echo base_url(); ?>Back-Office/codeRechargeController/validation">Valider un rechargement</a></li>
                                     <li><a href="#">Supprimer</a></li>
-                                    <li><a href="#">Ajouter</a></li>
+                                    <li><a href="<?php echo base_url(); ?>Back-Office/codeRechargeController">Ajouter</a></li>
                                     <li><a href="<?php echo base_url(); ?>Back-Office/codeRechargeController/liste">Liste</a></li>
                                 </ul>
                             </li>
