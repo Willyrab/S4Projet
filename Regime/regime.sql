@@ -155,6 +155,10 @@ CREATE TABLE demandeRecharge(
     FOREIGN KEY(idUtilisateur) REFERENCES utilisateur(id)
 )ENGINE=INNODB;
 
+SELECT demandeRecharge.*, codePorteMonnaie.code, codePorteMonnaie.valeur, codePorteMonnaie.etat, utilisateur.email FROM demandeRecharge
+JOIN codePorteMonnaie ON codePorteMonnaie.id = demandeRecharge.idCode
+JOIN utilisateur ON utilisateur.id = demandeRecharge.idUtilisateur;
+
 CREATE TABLE codeValide(
     id INT PRIMARY KEY AUTO_INCREMENT,
     idCode INT,

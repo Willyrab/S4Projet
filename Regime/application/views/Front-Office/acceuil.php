@@ -76,8 +76,8 @@
             <div class="navbar-nav ms-auto mx-lg-auto py-0">
                 <a href="<?php echo site_url('AccueilController/show_accueil') ?>" class="nav-item nav-link active">Home</a>
                 <a href="<?php echo site_url('about.html') ?>" class="nav-item nav-link">About Us</a>
-                <a href="menu.html" class="nav-item nav-link">Menu & Pricing</a>
-                <a href="<?php echo site_url('Front-Office/ProfilController/show_completion') ?>" class="nav-item nav-link">Ajout Information </a>
+                <a href="<?php echo site_url('Front-Office/monnaieController/show_monnaie') ?>" class="nav-item nav-link">Porte Monnaie</a>
+                <a href="<?php echo site_url('ProfilController/show_completion') ?>" class="nav-item nav-link">Ajout Information </a>
 
 
 

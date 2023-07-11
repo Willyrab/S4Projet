@@ -23,8 +23,29 @@ class CodeRechargeController extends CI_Controller
     {
     }
 
+    public function validerRecharge($idCode, $idUtilisateur, $variation)
+    {
+        $this->load->model('codeRecharge');
+        $this->load->model('codeValide');
+        $this->load->model('porteMonnaie');
+        $this->codeRecharge->update($idCode, array('etat' => 11));
+        $this->codeValide->valider($idCode);
+        $this->porteMonnaie->addMoney($idUtilisateur, $variation);
+        redirect('Back-Office/codeRechargeController/validation');
+    }
+
+    public function refuserRecharge($idCode)
+    {
+        $this->load->model('codeRecharge');
+        echo intval(array('id' => 5));
+        $this->codeRecharge->update($idCode, array('etat' => -11));
+        redirect('Back-Office/codeRechargeController/validation');
+    }
+
     public function validation()
     {
+        $this->load->model('demandeRecharge');
+        $data['demandes'] = $this->demandeRecharge->getAllDemandes();
         $data['content'] = 'Back-Office/validation-code';
         $this->load->view('Back-Office/template', $data);
     }
