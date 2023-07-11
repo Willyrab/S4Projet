@@ -38,11 +38,11 @@
               <form action="<?php echo base_url('Front-Office/LoginController/signin') ?>" method="post">
                 <div class="form-group first">
                   <label for="username">Utilisateur</label>
-                  <input type="text" class="form-control" placeholder="Votre-email@gmail.com" name="email">
+                  <input type="text" class="form-control" placeholder="john.doe@example.com" name="email">
                 </div>
                 <div class="form-group last mb-3">
                   <label for="password">Mot de passe</label>
-                  <input type="password" class="form-control" placeholder="Votre mot de passe" id="mdp">
+                  <input type="password" class="form-control" placeholder="mypassword" id="mdp">
                 </div>
 
                 <div class="d-sm-flex mb-5 align-items-center">

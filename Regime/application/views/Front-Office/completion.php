@@ -17,7 +17,7 @@
 
   <!-- Style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/css/completion.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('assets/css/acceuil.css') ?>">
+
   <!-- Style -->
 
 
@@ -25,6 +25,7 @@
 </head>
 
 <body>
+
 
 
   <!-- Navbar Start -->
@@ -38,20 +39,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto mx-lg-auto py-0">
         <a href="<?php echo site_url('Front-Office/AccueilController/show_accueil') ?>" class="nav-item nav-link active">Home</a>
-        <a href="about.html" class="nav-item nav-link">About Us</a>
-        <a href="menu.html" class="nav-item nav-link">Menu & Pricing</a>
-        <a href="modification.html" class="nav-item nav-link">Ajout Information </a>
+        <a href="<?php echo site_url('Front-Office/Regime_controller/show_regime') ?>" class="nav-item nav-link">Regime</a>
+        <a href="<?php echo site_url('Front-Office/MonnaieController/show_monnaie') ?>" class="nav-item nav-link">Porte Monnaie</a>
+        <a href="<?php echo site_url('Front-Office/ProfilController/show_completion') ?>" class="nav-item nav-link">Information de Santé</a>
 
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-          <div class="dropdown-menu m-0">
-            <a href="service.html" class="dropdown-item">Our Service</a>
-            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-          </div>
-        </div>
-        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
-        <a href="menu.html" class="nav-item nav-link"><i class="fas fa-user white-icon"></i>
+        <a href="<?php echo site_url('Front-Office/IMC_controller/show_imc') ?>" class="nav-item nav-link">Voir votre IMC</a>
+        <a href="<?php echo site_url('Front-Office/ProfilController/show_profil') ?>" class="nav-item nav-link"><i class="fas fa-user white-icon"></i>
           </i></a>
+        <a href="<?php echo site_url('Front-Office/MySession/logout') ?>" class="nav-item nav-link">Se deconnecter</a>
       </div>
     </div>
   </nav>
@@ -65,12 +60,12 @@
           <div class="col-md-12">
             <div class="form-block mx-auto">
               <div class="text-center mb-5">
-                <h3><strong>Information</strong></h3>
+                <h3><strong>Information de sante</strong></h3>
                 <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
               <form action="<?php echo base_url('Front-Office/ProfilController/addCompletion') ?> " method="post">
                 <div class="form-group first">
-                  <label for="username">Taille(en m)</label>
+                  <label for="username">Taille(en cm)</label>
                   <input type="text" class="form-control" placeholder="Votre taille" name="taille">
                 </div>
                 <div class="form-group last mb-3">

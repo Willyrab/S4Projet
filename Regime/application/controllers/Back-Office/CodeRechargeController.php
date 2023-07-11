@@ -21,6 +21,31 @@ class CodeRechargeController extends CI_Controller
      */
     public function index()
     {
+        $data['content'] = 'Back-Office/ajout-code';
+        $this->load->view('Back-Office/template', $data);
+    }
+
+    public function ajouter()
+    {
+        $this->load->model('codeRecharge');
+        $post = $this->input->post();
+        $options_echappees = array(
+            'code' => $post['code'],
+            'valeur' => $post['valeur'],
+            'etat' => 1
+        );
+        $options_non_echappees = array(
+            'id' => 'default'
+        );
+        $this->codeRecharge->create($options_echappees, $options_non_echappees);
+        redirect('Back-Office/codeRechargeController');
+    }
+
+    public function checkIfExists()
+    {
+        $this->load->model('codeRecharge');
+        $exists = $this->codeRecharge->getAll('*', 'code = \'' . $_POST['string'] . '\'');
+        echo json_encode(!empty($exists));
     }
 
     public function validerRecharge($idCode, $idUtilisateur, $variation)
